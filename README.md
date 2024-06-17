@@ -1,2 +1,2 @@
 # landschaft
-geopolitical landscape tool
+geopolitical landscape visualization tool
