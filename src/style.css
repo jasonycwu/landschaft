@@ -2,7 +2,7 @@
  * @Author: Jason Y. Wu
  * @Date:   2024-06-16 20:24:37
  * @Last Modified by:   Jason Y. Wu
- * @Last Modified time: 2024-06-16 23:21:13
+ * @Last Modified time: 2024-06-17 00:31:59
  */
 
  body {
@@ -28,7 +28,7 @@
 .title {
     position: absolute;
       top: 20px;
-      left: 20px;
+      left: 30px;
       font-size: 48px; /* Adjust the size as needed */
       font-family: "Bodoni";
       font-weight: bold;
@@ -39,14 +39,19 @@
 .subtitle {
     position: absolute;
     top: 70px;
-    left: 20px;
+    left: 30px;
     font-family: "Bodoni";
 }
 
 /* Container for the globe */
 .globe-wrapper {
-    margin-top: 9vh; /* Adjust as needed */
     position: relative;
+    margin-top: 100px; /* Adjust to add space below the title */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1800px; /* Set your desired width */
+    height: 1800px; /* Set your desired height */
 }
 
 .info {
@@ -87,21 +92,4 @@ svg {
     position: fixed;
     top: 0;
     visibility: hidden;
-}
-
-/* Little GUI styles */
-.lil-gui {
-    --width: 350px; /* Adjust as needed */
-    max-width: 90%;
-    --widget-height: 20px;
-    font-size: 15px;
-    --input-font-size: 15px;
-    --padding: 10px;
-    --spacing: 10px;
-    --slider-knob-width: 5px;
-    --background-color: rgba(5, 0, 15, .8);
-    --widget-color: rgba(255, 255, 255, .3);
-    --focus-color: rgba(255, 255, 255, .4);
-    --hover-color: rgba(255, 255, 255, .5);
-    --font-family: monospace; /* Define font family */
 }

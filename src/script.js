@@ -2,7 +2,7 @@
  * @Author: Jason Y. Wu
  * @Date:   2024-06-16 20:13:05
  * @Last Modified by:   Jason Y. Wu
- * @Last Modified time: 2024-06-16 20:50:54
+ * @Last Modified time: 2024-06-17 01:03:06
  */
 import * as THREE from "three";
 import {OrbitControls} from "three/addons/controls/OrbitControls.js";
@@ -44,8 +44,6 @@ const dataUris = [];
 
 
 initScene();
-createInfoBox();
-// createControls();
 
 window.addEventListener("resize", updateSize);
 
@@ -94,7 +92,7 @@ function initScene() {
     gsap.ticker.add(render);
 }
 
-
+// the globe itself, its behavior
 function createOrbitControls() {
     controls = new OrbitControls(camera, canvasEl);
     controls.enablePan = false;
@@ -102,7 +100,7 @@ function createOrbitControls() {
     controls.enableDamping = true;
     controls.minPolarAngle = .46 * Math.PI;
     controls.maxPolarAngle = .46 * Math.PI;
-    controls.autoRotate = false;
+    controls.autoRotate = false; // rotate on its own
     controls.autoRotateSpeed *= 1.2;
 
     controls.addEventListener("start", () => {
@@ -131,6 +129,7 @@ function createOrbitControls() {
     });
 }
 
+// creates and configs the globe
 function createGlobe() {
     const globeGeometry = new THREE.IcosahedronGeometry(1, 20);
 
@@ -264,41 +263,10 @@ function render() {
     renderer.render(scene, camera);
 }
 
+// sets the size of the globe container
 function updateSize() {
-    const side = Math.min(500, Math.min(window.innerWidth, window.innerHeight) - 50);
+    const side = Math.min(1000, Math.min(window.innerWidth, window.innerHeight) - 50);
     containerEl.style.width = side + "px";
     containerEl.style.height = side + "px";
     renderer.setSize(side, side);
-}
-
-function createInfoBox(){
-    const gui = new GUI();
-    gui.close();
-    
-}
-
-function createControls() {
-    // const gui = new GUI();
-	
-	// gui.close();
-	
-    // gui.addColor(params, "strokeColor")
-    //     .onChange(prepareHiResTextures)
-    //     .name("stroke")
-    // gui.addColor(params, "defaultColor")
-    //     .onChange(prepareHiResTextures)
-    //     .name("color")
-    // gui.addColor(params, "hoverColor")
-    //     .onChange(prepareLowResTextures)
-    //     .name("highlight")
-    // gui.addColor(params, "fogColor")
-    //     .onChange(() => {
-    //         scene.fog = new THREE.Fog(params.fogColor, 0, params.fogDistance);
-    //     })
-    //     .name("fog");
-    // gui.add(params, "fogDistance", 1, 4)
-    //     .onChange(() => {
-    //         scene.fog = new THREE.Fog(params.fogColor, 0, params.fogDistance);
-    //     })
-    //     .name("fog distance");
 }
