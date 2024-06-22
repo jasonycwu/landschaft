@@ -1,0 +1,70 @@
+SAMPLE COUNTRY  -   United States - USA
+
+Sample:        USA/XXX      SAME VOTE: SA    DIFF(ABS): DA   DIFF(OPP): DO 
+Assume there were 20 votes in total.      
+    Australia       AUS     15              3               2
+    Canada          CAN     17              2               1
+    China           CHN     2               3               15
+    Finland         FIN     11              2               7
+    France          FRA     9               9               2
+    Germany         DEU     12              4               4
+    India           IND     11              6               3
+    Iran            IRN     1               2               17
+    Israel          ISR     18              1               1
+    Japan           JPN     16              3               1
+    North Korea     NKR     0               1               19
+    Philippines     PHL     10              3               7
+    Qatar           QTR     12              5               3
+    Russia          RUS     4               4               12
+    Saudi Arabia    SAU     9               3               8
+    South Korea     KOR     14              5               1
+    United Kingdom  GBR     19              1               0
+    Venezuela       VEZ     3               3               14
+
+SAMPLE CALCULATIONS
+Range: [0, 1]   0 = disagree everything     1 = agree on everything
+
+REL_usachn = (SA + 0.5(DA)) / total     
+            = (2 + 0.5(3)) / 20
+            = 0.233     UNFRIENDLY
+
+REL_usairn = (SA + 0.5(DA)) / total
+            = (1 + 0.5(2)) / 20
+            = 0.100     HOSTILE
+
+REL_usafra = (SA + 0.5(DA)) / total
+            = (9 + 0.5(9)) / 20
+            = 0.675     INDIFFERENT
+
+REL_usarus = (SA + 0.5(DA)) / total
+            = (4 + 0.5(4)) / 20
+            = 0.300     UNFRIENDLY
+
+REL_usagbr = (SA + 0.5(DA)) / total
+            = (19 + 0.5(1)) / 20
+            = 0.975     VERY FRIENDLY
+
+REL_usaaus = ...
+            = 0.825     FRIENDLY
+
+
+SAMPLE OUTPUT:
+    UNITED STATES: 
+    ('AUS', 0.825, 'Very Friendly') -> bright green
+    ('CAN', 0.9, 'Very Friendly')
+    ('CHN', 0.175, 'Hostile') -> bright red
+    ('FIN', 0.6, 'Friendly') -> green
+    ('FRA', 0.675, 'Friendly')
+    ('DEU', 0.7, 'Friendly')
+    ('IND', 0.7, 'Friendly')
+    ('IRN', 0.1, 'Hostile')
+    ('ISR', 0.925, 'Very Friendly')
+    ('JPN', 0.875, 'Very Friendly')
+    ('NKR', 0.025, 'Hostile')
+    ('PHL', 0.575, 'Neutral') -> no color
+    ('QTR', 0.725, 'Friendly')
+    ('RUS', 0.3, 'Unfriendly') -> red
+    ('SAU', 0.525, 'Neutral')
+    ('KOR', 0.825, 'Very Friendly')
+    ('GBR', 0.975, 'Very Friendly')
+    ('VEZ', 0.225, 'Unfriendly')
